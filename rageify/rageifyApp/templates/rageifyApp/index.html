@@ -1,1 +1,22 @@
-<input src = '{{ input_image }}' name = 'inputImage' type="text">
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>RAGEify</title>
+  <meta name="description" content="Rageify your photo">
+  <meta name="author" content="el-lopez-rapido">
+
+</head>
+<body>
+	{% if image_data %}
+		<img src="data:image/jpeg;charset=utf-8;base64,{{image_data}}" />
+	{% endif %}
+	<form action='' method="post" enctype="multipart/form-data">
+	    {% csrf_token %}
+	    {{form.as_p}}
+	    <input type="submit" value="Submit">
+	</form>
+</body>
+</html>
